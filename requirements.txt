@@ -1,0 +1,7 @@
+-e .
+boto3
+factory_boy
+Faker
+moto
+pytest
+responses

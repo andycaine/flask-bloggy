@@ -1,0 +1,23 @@
+
+{% macro footer(post, tag_labels) -%}
+  <footer class="bloggy-post-footer">
+    {% for tag in post.tags %}
+      {% if loop.first %}
+      <span>Tags:</span>
+      <ul style="display: inline;">
+      {% endif %}
+        <li style="display: inline;">
+          <a style="margin-left: 0.25rem; margin-right: 0.25rem;" href="{{ url_for ('.list_posts')}}?tag={{ tag.name }}" target="_self" title="{{ tag.label }}">
+            {{tag.label}}
+          </a>{% if not loop.last %} | {% endif %}
+        </li>
+      {% if loop.last %}
+      </ul>
+      {% endif %}
+    {% endfor %}
+    <p style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
+      Posted on <time datetime="{{ post.created.isoformat() }}">
+        {{ "{:%-d %B %Y}".format(post.created) }}</time>.
+    </p>
+  </footer>
+{% endmacro %}

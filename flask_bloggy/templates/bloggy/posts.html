@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% import 'bloggy/macros.html' as blog_macros %}
+{% block content %}
+<ol>
+{% for post in posts %}
+<li class="bloggy-post-item">
+  <a class="bloggy-post-title-link" href="{{ url_for ('.show_post', slug=post.slug) }}">
+    <h2 class="bloggy-post-title">{{ post.title }}</h2>
+  </a>
+  {{ image(post.main_image) }}
+
+  <div class="bloggy-post-body">
+  {{ post.body | md_to_html | first_para }}
+  </div>
+  <p class="bloggy-post-read-more">
+    <a href="{{ url_for ('.show_post', slug=post.slug) }}"> Read more... </a>
+  </p>
+
+  {{ blog_macros.footer(post, tag_labels) }}
+
+  <hr>
+</li>
+{% endfor %}
+</ol>
+{% if web_paging_paging_tokens %}
+<p>
+  {% if web_paging_previous_path %}
+    <a href="{{ web_paging_previous_path }}">
+      Newer posts
+    </a>
+  {% endif %}
+  {% if web_paging_previous_path and web_paging_next_path %}
+    <span style="margin-left: 0.25rem; margin-right: 0.25rem;">|</span>
+  {% endif %}
+  {% if web_paging_next_path %}
+    <a href="{{ web_paging_next_path }}">
+      Older posts
+    </a>
+  {% endif %}
+</p>
+{% endif %}
+{% endblock %}

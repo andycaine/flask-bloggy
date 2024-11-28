@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% import 'bloggy/macros.html' as blog_macros %}
+{% block subtitle %}{{ post.title }}{% endblock %}
+{% block content %}
+<h2 class="bloggy-post-title">{{ post.title }}</h2>
+
+{{ image(post.main_image) }}
+
+<div class="bloggy-post-body">
+{{ post.body | md_to_html }}
+</div>
+
+{{ blog_macros.footer(post, tag_labels) }}
+
+{% endblock %}
