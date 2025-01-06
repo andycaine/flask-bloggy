@@ -1,6 +1,6 @@
 [project]
 name = "flask-bloggy"
-version = "0.0.1"
+version = "0.1.0"
 description = "A simple but fast blog extension for Flask."
 dependencies = [
     "click", "flask", "Markdown", "pillow", "opentelemetry-api", "nsst", "web-paging[flask]"
