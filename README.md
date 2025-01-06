@@ -19,7 +19,7 @@ from flask_bloggy import BloggyExtension
 app = Flask(__name__)
 
 BloggyExtension(app=app,
-                table_name='dynamodb-table,
+                table_name='dynamodb-table',
                 images_bucket_name='s3-bucket-name',
                 images_width=1300,
                 images_height=450
