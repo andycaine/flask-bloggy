@@ -1,6 +1,6 @@
 [project]
 name = "flask-bloggy"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple but fast blog extension for Flask."
 dependencies = [
     "click", "flask", "Markdown", "pillow", "opentelemetry-api", "nsst", "web-paging[flask]"
@@ -22,6 +22,11 @@ build-backend = "setuptools.build_meta"
 [project.scripts]
 bloggy = "flask_bloggy.cli:cli"
 
-
 [project.optional-dependencies]
 boto3 = ["boto3"]
+
+[tool.setuptools]
+packages = ["flask_bloggy"]
+
+[tool.setuptools.package-data]
+flask_bloggy = ["templates/**/*"]
