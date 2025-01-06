@@ -6,6 +6,15 @@ dependencies = [
     "click", "flask", "Markdown", "pillow", "opentelemetry-api", "nsst", "web-paging[flask]"
 ]
 
+readme = "README.md"
+license = {text = "MIT License"}
+keywords = ["flask", "blog"]
+
+[project.urls]
+Homepage = "https://github.com/andycaine/flask-bloggy"
+Documentation = "https://github.com/andycaine/flask-bloggy?tab=readme-ov-file"
+Repository = "https://github.com/andycaine/flask-bloggy.git"
+
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
