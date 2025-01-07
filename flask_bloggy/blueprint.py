@@ -14,7 +14,7 @@ def _404():
     return abort(404)
 
 
-blueprint = Blueprint('bloggy', __name__)
+blueprint = Blueprint('bloggy', __name__, template_folder='templates')
 
 
 def get_db():
